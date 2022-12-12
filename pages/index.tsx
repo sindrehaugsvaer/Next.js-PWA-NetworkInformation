@@ -34,7 +34,7 @@ export default function Home() {
       {/* <a href="https://nextjs.org">video page!</a> */}
       <main className={styles.main}>
         <h1 className={styles.title}>
-          APW project<br></br>Fall 2022
+          APW project<br></br>Fall 2022 v1
         </h1>
 
         <p className={styles.description}>
