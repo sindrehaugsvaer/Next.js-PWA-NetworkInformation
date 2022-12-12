@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { useEffect, useState } from 'react';
 import styles from '../styles/Home.module.css'
-import { useNetworkInformation } from './networkInformation';
+import { useNetworkInformation } from '../hooks/networkInformation';
 import YoutubeIframe from "./youtubevideo";
 
 export default function Home() {

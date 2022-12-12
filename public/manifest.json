@@ -5,8 +5,8 @@
     "scope": "/",
     "start_url": "/",
     "name": "Dynamic content",
-    "description": "APW 2022",
     "short_name": "DC",
+    "description": "APW 2022",
     "icons": [
         {
             "src": "/icon-192x192.png",
