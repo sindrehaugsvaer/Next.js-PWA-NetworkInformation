@@ -2,8 +2,9 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { useEffect, useState } from 'react';
 import styles from '../styles/Home.module.css'
-import { useNetworkInformation } from '../hooks/networkInformation';
+import { useNetworkInformation } from '../hooks/useNetworkInformation';
 import YoutubeIframe from "./youtubevideo";
+import { useBatteryStatus } from '../hooks/useBatteryStatus';
 
 export default function Home() {
   const videoProps = {
@@ -11,18 +12,15 @@ export default function Home() {
     title: "The video:",
     autoplay: true
   }
+  //navigator.deviceMemory - kanskje også bruke denne?
 
-  const [connection, setConnection] = useState(useNetworkInformation().effectiveType);
+  //const [connection, setConnection] = useState(useNetworkInformation().effectiveType);
   //useEffect(() => setConnection(useNetworkInformation().effectiveType), []);
+  const battery = useBatteryStatus();
+  const connection = useNetworkInformation();
 
-  const networkInformation = useNetworkInformation().effectiveType;
-  
-  // const networkInformation = useNetworkInformation();
-  // console.log("hei"+networkInformation.effectiveType);
-
-  // useEffect(() => {
-  //   const networkInformation = useNetworkInformation();
-  // });
+  console.log("hei", connection);
+  console.log("batteri", battery);
 
   return (
     <div className={styles.container}>
@@ -43,11 +41,14 @@ export default function Home() {
           {/* <code className={styles.code}>network information API</code> */}
         </p>
 
-        <div className={styles.grid}>
-          <div className={styles.card}>
-              <p>Your current connection:</p>
-              <h2 className={styles.centerText}>{networkInformation}</h2>
-          </div>
+        <div className={styles.statusCard}>
+          <h2>Your current stats:</h2>
+          <h4 className={styles.centerText}>Speed: {connection.effectiveType}</h4>
+          {/* <h3 className={styles.centerText}>Type: {connection.type}</h3> */}
+          <h4 className={styles.centerText}>Downlink: {connection.downlink}</h4>
+          <h4 className={styles.centerText}>RTT: {connection.rtt}</h4>
+          <h4 className={styles.centerText}>Battery charging: {battery.charging}</h4>
+          <h4 className={styles.centerText}>Battery level: {battery.level}</h4>
         </div>
 
         {/* <p className={styles.description}>Your current connection:
@@ -55,12 +56,12 @@ export default function Home() {
         {/* <NetworkInfo/> */}
         {/* <h1>{networkInformation}</h1> */}
 
-        
+
         {/* <div className={styles.videoGrid}>
          </div> */}
-        
+
         <h2>{videoProps.title}</h2>
-        <YoutubeIframe {... videoProps} />
+        <YoutubeIframe {...videoProps} />
 
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
