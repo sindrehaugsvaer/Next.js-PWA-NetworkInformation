@@ -14,10 +14,7 @@ export function useBatteryStatus() {
     useEffect(() => {
         let callback = () => { };
         // @ts-ignore
-        console.log("useEffekt heiheihei", navigator);
-        // @ts-ignore
         navigator?.getBattery().then(battery => {
-            console.log(battery);
             function updateBatteryStatus() {
                 setState({
                     charging: battery.charging ? "Yes" : "No",

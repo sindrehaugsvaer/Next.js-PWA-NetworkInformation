@@ -2,9 +2,9 @@
 //   //   reactStrictMode: true,
 //   //   swcMinify: true,
 //   // }
-  
+
 //   // module.exports = nextConfig
-  
+
 // /** @type {import('next').NextConfig} */
 // const withPWA = require("next-pwa");
 
@@ -39,6 +39,9 @@ const withPWA = require('next-pwa')({
 })
 
 module.exports = withPWA({
+  images: {
+    domains: ['https://cdn.pixabay.com'],
+  },
   // next.js config
 })
 
@@ -49,3 +52,14 @@ module.exports = withPWA({
 //     skipWaiting: true,
 //   },
 // });
+
+  // images: {
+  //   remotePatterns: [
+  //     {
+  //       protocol: 'https',
+  //       hostname: 'example.com',
+  //       port: '',
+  //       pathname: '/account123/**',
+  //     },
+  //   ],
+  // },

@@ -11,7 +11,6 @@
 // 👉 https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation/effectiveType
 
 import { useEffect, useState } from "react";
-import internal from "stream";
 
 /**
  * Read the current network classification
@@ -32,7 +31,6 @@ export function useNetworkInformation() {
     const connection =
       // @ts-ignore
       navigator?.connection || navigator?.mozConnection || navigator?.webkitConnection;
-
     function updateConnectionStatus() {
       setState({
         isEnabled: true,
