@@ -13,24 +13,29 @@ export function useBatteryStatus() {
 
     useEffect(() => {
         let callback = () => { };
-        // @ts-ignore
-        navigator?.getBattery().then(battery => {
-            function updateBatteryStatus() {
-                setState({
-                    charging: battery.charging ? "Yes" : "No",
-                    level: (battery.level * 100) + '%',
-                });
-            }
-            updateBatteryStatus();
-            battery?.addEventListener("chargingchange", updateBatteryStatus);
-            battery?.addEventListener("levelchange", updateBatteryStatus);
 
-            callback = () => {
-                battery?.removeEventListener("chargingchange", updateBatteryStatus);
-                battery?.removeEventListener("levelchange", updateBatteryStatus);
-            }
-        });
-        return callback;
+        try {
+            // @ts-ignore
+            navigator?.getBattery().then(battery => {
+                function updateBatteryStatus() {
+                    setState({
+                        charging: battery.charging ? "Yes" : "No",
+                        level: (battery.level * 100) + '%',
+                    });
+                }
+                updateBatteryStatus();
+                battery?.addEventListener("chargingchange", updateBatteryStatus);
+                battery?.addEventListener("levelchange", updateBatteryStatus);
+
+                callback = () => {
+                    battery?.removeEventListener("chargingchange", updateBatteryStatus);
+                    battery?.removeEventListener("levelchange", updateBatteryStatus);
+                }
+            });
+        } catch {
+            return callback;
+            console.log("callback", callback);
+        }
     }, [])
     return state;
 }
