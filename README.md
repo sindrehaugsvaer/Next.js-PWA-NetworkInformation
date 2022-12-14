@@ -4,6 +4,8 @@ As part of the [NTNU](https://www.ntnu.edu/) Master's course [IMT4894 - Advanced
 
 This technique ensures faster loading times and reduced latency.
 
+The PWA is developed with [Next.js](https://nextjs.org/), a React web framework. 
+
 ## Check it out
 
 - The app is publicly available on the cloud hosting platform [Netlify](https://netlify.com), and can be accessed [HERE](https://apw22.netlify.app/)
