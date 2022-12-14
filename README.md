@@ -1,6 +1,6 @@
 # APW-project 2022
 
-As part of the [NTNU](https://www.ntnu.edu/) Master's course [IMT4894 - Advanced Project Work](https://www.ntnu.edu/studies/courses/IMT4894/), I have developed a progressive web app (PWA) that utilizes Web API's to gather information on network connection and hardware, in order to dynamically render content. 
+As part of the [NTNU](https://www.ntnu.edu/) Master's course [IMT4894 - Advanced Project Work](https://www.ntnu.edu/studies/courses/IMT4894/), I have developed a progressive web app (PWA) that utilizes [Web API's](https://developer.mozilla.org/en-US/docs/Web/API) to gather information on network connection and hardware, in order to dynamically render content. 
 
 This technique ensures faster loading times and reduced latency.
 
@@ -19,7 +19,8 @@ This technique ensures faster loading times and reduced latency.
 
 - By playing with these, the stats on the app will change along with app content.
 
-
+**Reminder:**\
+*The Network Information API is still experimental, which means it is not supported by all browsers. Chrome is recommended.*
 
 ## Github repository
 Source code available [HERE](https://github.com/sindrehaugsvaer/Next.js-PWA-NetworkInformation).
