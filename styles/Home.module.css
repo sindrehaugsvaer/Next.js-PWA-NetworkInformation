@@ -19,8 +19,13 @@
   position: relative;
 }
 
+.titleContentWidth {
+  width: 400px;
+  margin: auto;
+}
+
 .title {
-  margin-top: 20vh;
+  margin-top: 12vh;
   line-height: 1.15;
   font-size: 4rem;
   color: #49a3fd;
@@ -60,8 +65,33 @@
   text-decoration: none;
 }
 
+.speedBox {
+  width: 130px;
+  height: 130px;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  /* margin: 3px; */
+  text-align: center;
+  margin: auto;
+  margin-top: auto;
+
+  /* font-size: 0.8rem; */
+}
+
+.speedBox p {
+  margin: 0 0;
+  font-size: 0.95rem;
+}
+
+.speedBox h2 {
+  margin: 0 0;
+  font-size: 3.6rem;
+  color: #0070f3;
+  text-transform: uppercase;
+}
+
 .instructions {
-  margin: 5rem 0;
+  margin-top: 1rem;
   color: #a5a5a5;
   font-style: italic;
 }
@@ -69,10 +99,19 @@
 .statusSpace {
   width: 100%;
   text-align: center;
-  border-radius: 10px;
-  border: 1px solid #0070f3;
+  /* border-radius: 10px;
+  border: 1px solid #0070f3; */
   position: absolute;
   bottom: 5.5rem;
+}
+
+.statusBigBox {
+  border-radius: 10px;
+  border: 1px solid #0070f3;
+}
+
+.statusBigBox h3 {
+  margin: 0.7rem 0.7rem;
 }
 
 .statusGrid {
@@ -80,6 +119,7 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  margin-bottom: 0.5rem;
 }
 
 .statusBox {
@@ -88,12 +128,24 @@
   border-radius: 10px;
   margin: 6px;
   font-size: 0.8rem;
+  display: flex;
+  justify-content: center;
+}
+
+.statusBox>p {
+  margin: 12px 4px;
+}
+
+.statusBox:hover,
+.statusBox:focus,
+.statusBox:active {
+  color: #0070f3;
+  border-color: #0070f3;
 }
 
 .stats {
   text-transform: uppercase;
   font-weight: bold;
-  display: inline;
   color: #49a3fd;
 }
 
@@ -127,14 +179,8 @@
 }
 
 .imgContainer {
-  /* background: url('https://images.unsplash.com/photo-1502134249126-9f3755a50d78?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80'); */
-  /* width: 100%; */
   position: relative;
-  /* height: 30vh; */
   width: 100%;
-  /* height:300px;
-  maxWidth: 100%;
-  height: 'auto'; */
 }
 
 .image {
@@ -146,8 +192,8 @@
   margin-top: 1rem;
 }
 
-/* 
-.image>div {
+
+/* .image>div {
   position: unset !important;
 } */
 
@@ -177,6 +223,89 @@
   align-items: center;
 }
 
+.footer:hover,
+.footer:focus,
+.footer:active {
+  color: #0070f3;
+  border-color: #0070f3;
+}
+
+@media (max-height: 1070px) {
+  .title {
+    margin: 0 0;
+    line-height: 1.15;
+    font-size: 2.5rem;
+  }
+}
+
+
+@media (max-height: 880px) {
+  .title {
+    margin: 0 0;
+    line-height: 1.15;
+    font-size: 2.5rem;
+  }
+
+  .description {
+    margin: 1rem 0;
+    line-height: 1.5;
+    font-size: 1rem;
+  }
+}
+
+@media (max-height: 780px) {
+
+  /* Stats: */
+  .statusSpace {
+    bottom: 5.7rem;
+  }
+
+  .statusSpace h2 {
+    font-size: 1rem;
+  }
+
+  .statusBox {
+    width: 220px;
+    margin: 5px;
+    font-size: 0.8rem;
+    border: 0;
+  }
+
+  .statusBox p {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .stats {
+    text-transform: uppercase;
+    font-weight: bold;
+    display: inline;
+    color: #49a3fd;
+  }
+}
+
+@media (max-height: 715px) {
+  .speedBox {
+    width: 90px;
+    height: 90px;
+  }
+
+  .speedBox p {
+    font-size: 0.8rem;
+  }
+
+  .speedBox h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-height: 670px) {
+  .instructions {
+    font-size: 0.8rem;
+    margin: 0.6rem 0.6rem;
+  }
+}
+
 @media (max-width: 600px) {
 
   .main {
@@ -204,7 +333,7 @@
     bottom: 3.5rem;
   }
 
-  .statusSpace h2 {
+  .statusSpace h3 {
     font-size: 1rem;
   }
 
@@ -233,6 +362,26 @@
   }
 }
 
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.5rem;
+  }
+
+  .titleContentWidth {
+    width: 310px;
+    margin: auto;
+  }
+
+  .statusSpace {
+    bottom: 2.5rem;
+  }
+
+  .statusBox {
+    width: 200px;
+    margin: 2px;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
 
   .card,
@@ -248,13 +397,3 @@
     filter: invert(1);
   }
 }
-
-/* BRUKES IKKE: */
-/* .code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
-} */
