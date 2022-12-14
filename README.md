@@ -1,34 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# APW-project 2022
 
-## Getting Started
+As part of the [NTNU](https://www.ntnu.edu/) Master's course [IMT4894 - Advanced Project Work](https://www.ntnu.edu/studies/courses/IMT4894/), I have developed a progressive web app (PWA) that utilizes Web API's to gather information on network connection and hardware, in order to dynamically render content. 
 
-First, run the development server:
+This technique ensures faster loading times and reduced latency.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Check it out
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- The app is publicly available on the cloud hosting platform [Netlify](https://netlify.com), and can be accessed [HERE](https://apw22.netlify.app/)
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- The app instantly displays current stats retrieved from your browser. By scrolling down, some mock-articles with images and a video is presented.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- All the articles links to NASA, and the video is embedded from YouTube.
 
-## Learn More
+## Throttling network speed
 
-To learn more about Next.js, take a look at the following resources:
+- By accessing the development-tools in your browser (Chrome is recommended), and selecting the network-tab, the option of network-throttling is shown with "No throttling". "Fast 3g", "slow 3g", and "offline" can be selected. The default option is "no throttling", or 4g. 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- By playing with these, the stats on the app will change along with app content.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Github repository
+Source code available [HERE](https://github.com/sindrehaugsvaer/Next.js-PWA-NetworkInformation).
