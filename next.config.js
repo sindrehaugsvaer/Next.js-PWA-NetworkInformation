@@ -40,9 +40,24 @@ const withPWA = require('next-pwa')({
 
 module.exports = withPWA({
   images: {
-    domains: ['https://cdn.pixabay.com'],
-  },
+    domains: ['images.unsplash.com'],
+  }
+  // images: {
+  //   domains: ['https://images.unsplash.com'],
+  // },
+  // images: {
+  //   formats: ['image/avif', 'image/webp'],
+  //   remotePatterns: [
+  //     {
+  //       protocol: 'https',
+  //       hostname: 'images.unsplash.com',
+  //       port: '',
+  //       pathname: '/image/upload/**',
+  //     },
+  //   ],
+  // },
   // next.js config
+  // more img: 'https://cdn.pixabay.com', 'https://i.ntnu.no', 
 })
 
 // module.exports = withPWA({

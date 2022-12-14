@@ -1,23 +1,29 @@
+/* background-image: url('https://unsplash.com/photos/XV1qykwu82c'); */
+
 .container {
   padding: 0 2rem;
 }
 
 .main {
-  min-height: 100vh;
+  /* min-height: 100vh; */
   padding: 4rem 0;
-  flex: 1;
+  /* flex: 1; */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  /* align-items: left; */
 }
 
-.footer {
-  display: flex;
-  flex: 1;
-  border-top: 1px solid #eaeaea;
-  justify-content: center;
-  align-items: center;
+.home {
+  height: 100vh;
+  position: relative;
+}
+
+.title {
+  margin-top: 20vh;
+  line-height: 1.15;
+  font-size: 4rem;
+  color: #49a3fd;
 }
 
 .title a {
@@ -31,15 +37,9 @@
   text-decoration: underline;
 }
 
-.title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
-  color: #49a3fd;
-}
-
 .title,
-.description {
+.description,
+.instructions {
   text-align: center;
 }
 
@@ -60,13 +60,50 @@
   text-decoration: none;
 }
 
-.code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
+.instructions {
+  margin: 5rem 0;
+  color: #a5a5a5;
+  font-style: italic;
+}
+
+.statusSpace {
+  width: 100%;
+  text-align: center;
+  border-radius: 10px;
+  border: 1px solid #0070f3;
+  position: absolute;
+  bottom: 5.5rem;
+}
+
+.statusGrid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.statusBox {
+  border: 1px solid #eaeaea;
+  width: 200px;
+  border-radius: 10px;
+  margin: 6px;
+  font-size: 0.8rem;
+}
+
+.stats {
+  text-transform: uppercase;
+  font-weight: bold;
+  display: inline;
+  color: #49a3fd;
+}
+
+.content {
+  align-items: center;
+  /* flex: 1; */
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  background-image: url('https://images.unsplash.com/photo-1554050857-c84a8abdb5e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=927&q=80');
 }
 
 .grid {
@@ -86,8 +123,33 @@
   border: 1px solid #eaeaea;
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
-  max-width: 300px;
+  width: 80vw;
 }
+
+.imgContainer {
+  /* background: url('https://images.unsplash.com/photo-1502134249126-9f3755a50d78?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80'); */
+  /* width: 100%; */
+  position: relative;
+  /* height: 30vh; */
+  width: 100%;
+  /* height:300px;
+  maxWidth: 100%;
+  height: 'auto'; */
+}
+
+.image {
+  object-fit: contain;
+  width: 100% !important;
+  position: relative !important;
+  height: unset !important;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+
+/* 
+.image>div {
+  position: unset !important;
+} */
 
 .card:hover,
 .card:focus,
@@ -107,45 +169,67 @@
   line-height: 1.5;
 }
 
-.statusSpace {
-  width: 100%;
-  text-align: center;
-}
-
-.statusSpace h3 {
-  color: #0070f3;
-  margin: 0 0;
-}
-
-.statusGrid {
+.footer {
   display: flex;
-  align-items: center;
+  flex: 1;
+  border-top: 1px solid #eaeaea;
   justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 1rem;
-}
-
-.statusBox {
-  border: 1px solid #a4a4a4;
-  width: 220px;
-  border-radius: 10px;
-  margin: 10px;
-}
-
-.stats {
-  text-transform: uppercase;
-  display: inline;
-  color: #0070f3;
+  align-items: center;
 }
 
 @media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
+
+  .main {
+    padding: 2rem 0;
+  }
+
+  .title {
+    margin: 0 0;
+    line-height: 1.15;
+    font-size: 2rem;
+  }
+
+  .description {
+    margin: 1rem 0;
+    line-height: 1.5;
+    font-size: 1rem;
+  }
+
+  .instructions {
+    margin: 1rem 0;
+  }
+
+  /* Stats: */
+  .statusSpace {
+    bottom: 3.5rem;
+  }
+
+  .statusSpace h2 {
+    font-size: 1rem;
   }
 
   .statusBox {
-    margin: 4px;
+    width: 220px;
+    margin: 5px;
+    font-size: 0.8rem;
+    border: 0;
+  }
+
+  .statusBox p {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .stats {
+    text-transform: uppercase;
+    font-weight: bold;
+    display: inline;
+    color: #49a3fd;
+  }
+
+  .grid {
+    width: 100%;
+    flex-direction: column;
   }
 }
 
@@ -164,3 +248,13 @@
     filter: invert(1);
   }
 }
+
+/* BRUKES IKKE: */
+/* .code {
+  background: #fafafa;
+  border-radius: 5px;
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace;
+} */

@@ -51,89 +51,98 @@ export default function Home() {
         <meta name="description" content="APW 2022" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {/* <a href="https://nextjs.org">video page!</a> */}
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          APW project<br></br>Fall 2022 v1
-        </h1>
+        <div className={styles.home}>
+          <h1 className={styles.title}>
+            <a href="https://www.ntnu.edu/studies/courses/IMT4894/">APW</a> project<br></br>Fall 2022
+          </h1>
 
-        <p className={styles.description}>
-          This progressive web app renders content dynamically <br></br> based on your network connection by using the <br></br>
-          <a href="https://developer.mozilla.org/en-US/docs/Web/API/Network_Information_API">network information API</a>
-          {/* <code className={styles.code}>network information API</code> */}
-        </p>
+          <p className={styles.description}>
+            This progressive web app renders content dynamically <br></br> based on your network connection by using the <br></br>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/Network_Information_API">network information API</a>
+            {/* <code className={styles.code}>network information API</code> */}
+          </p>
 
-        <div className={styles.statusSpace}>
-          <h3>Your current stats:</h3>
-          <div className={styles.statusGrid}>
-            <div className={styles.statusBox}>
-              <p>Speed: <a className={styles.stats}>{connection.effectiveType}</a></p>
+          <p className={styles.instructions}>
+            Please use the &quot;throttling&quot; option available in<br></br> the Network-tab in the developer-tools to<br></br> adjust the content displayed on this site.
+          </p>
+
+          <div className={styles.statusSpace}>
+            <h2>Your current stats:</h2>
+            <div className={styles.statusGrid}>
+              <div className={styles.statusBox}>
+                <p>Speed: <a className={styles.stats}>{connection.effectiveType}</a></p>
+              </div>
+              {/* <h3 className={styles.centerText}>Type: {connection.type}</h3> */}
+              <div className={styles.statusBox}>
+                <p>Downlink: <a className={styles.stats}>{connection.downlink}</a></p>
+              </div>
+              <div className={styles.statusBox}>
+                <p>RTT: <a className={styles.stats}>{connection.rtt}</a></p>
+              </div>
+              {/* console.log(`This device has at least ${memory}GiB of RAM.`) */}
+              <div className={styles.statusBox}>
+                <p>RAM: <a className={styles.stats}>{ram}GB</a></p>
+              </div>
+              <div className={styles.statusBox}>
+                <p>Battery charging: <a className={styles.stats}>{battery.charging}</a></p>
+              </div>
+              <div className={styles.statusBox}>
+                <p>Battery level: <a className={styles.stats}>{battery.level}</a></p>
+              </div>
             </div>
-            {/* <h3 className={styles.centerText}>Type: {connection.type}</h3> */}
-            <div className={styles.statusBox}>
-              <p>Downlink: <a className={styles.stats}>{connection.downlink}</a></p>
-            </div>
-            <div className={styles.statusBox}>
-              <p>RTT: <a className={styles.stats}>{connection.rtt}</a></p>
-            </div>
-            {/* console.log(`This device has at least ${memory}GiB of RAM.`) */}
-            <div className={styles.statusBox}>
-              <p>RAM: <a className={styles.stats}>{ram}GB</a></p>
-            </div>
-            <div className={styles.statusBox}>
-              <p>Battery charging: <a className={styles.stats}>{battery.charging}</a></p>
-            </div>
-            <div className={styles.statusBox}>
-              <p>Battery level: <a className={styles.stats}>{battery.level}</a></p>
-            </div>
+            <p>&darr; Currently displaying the <a className={styles.stats}>{version}</a> version of the app &darr;</p>
           </div>
         </div>
 
-        <h2>Displaying the {version} version:</h2>
+        <div className={styles.content}>
+          <div className={styles.grid}>
 
-        <YoutubeIframe {...videoProps} />
+            <a href="https://www.nasa.gov/" target="_blank" rel="noopener noreferrer" className={styles.card}>
+              <h2>Universe &rarr;</h2>
+              <p>Click here to find out more about it, or watch this awesome YouTube-video:</p>
+              <YoutubeIframe {...videoProps} />
+            </a>
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+            <a href="https://www.nasa.gov/" target="_blank" rel="noopener noreferrer" className={styles.card}>
+              <h2>Galaxies &rarr;</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <div className={styles.imgContainer}>
+                <Image
+                  className={styles.image}
+                  alt="Space"
+                  src="https://images.unsplash.com/photo-1502134249126-9f3755a50d78?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80"
+                  fill
+                />
+              </div>
+            </a>
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
+            <a href="https://www.nasa.gov/" target="_blank" rel="noopener noreferrer" className={styles.card}>
+              <h2>Space Missions &rarr;</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <div className={styles.imgContainer}>
+                <Image
+                  className={styles.image}
+                  alt="Space"
+                  src="https://images.unsplash.com/photo-1596827414894-911f1265e391?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80"
+                  fill
+                />
+              </div>
+            </a>
 
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-
-          {/* <Image src="https://cdn.pixabay.com/photo/2013/07/21/13/00/rose-165819_960_720.jpg" width="200" height="100" alt="bilde"></Image> */}
-          <Image
-            // Absolute URL
-            src='https://cdn.pixabay.com/photo/2013/07/21/13/00/rose-165819_960_720.jpg'
-            // src='https://unsplash.com/photos/XV1qykwu82c'
-            alt='User profile picture'
-            width={300}
-            height={300}
-          />
-
+            <a href="https://www.nasa.gov/" target="_blank" rel="noopener noreferrer" className={styles.card}>
+              <h2>Lorem &rarr;</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <div className={styles.imgContainer}>
+                <Image
+                  className={styles.image}
+                  alt="Space"
+                  src="https://images.unsplash.com/photo-1640984756059-7303641db7cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80"
+                  fill
+                />
+              </div>
+            </a>
+          </div>
         </div>
       </main>
 
