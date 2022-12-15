@@ -67,7 +67,8 @@ export default function Home() {
   versionObject.version = "medium";
 
   // console.log("connection:", connection);
-  // console.log("batteri:", battery);
+  console.log("batteri:", battery);
+  console.log("battery level", battery.level)
   // console.log("ram", ram);
   // console.log(versionObject);
 
@@ -100,7 +101,7 @@ export default function Home() {
             </p>
 
             <div className={styles.speedBox}>
-              {(battery) ? (
+              {(battery.level) ? (
                 <>
                   <p>Current connection equivalent to:</p>
                   <h2>{(connection.effectiveType == "offline") ? 'off' : connection.effectiveType}</h2>
