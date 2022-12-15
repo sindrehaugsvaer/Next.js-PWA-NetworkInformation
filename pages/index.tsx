@@ -272,7 +272,7 @@ export default function Home() {
 
       <a href="https://github.com/sindrehaugsvaer/Next.js-PWA-NetworkInformation" target="_blank" rel="noopener noreferrer">
         <footer className={styles.footer}>
-          <p>Created by Sindre</p>
+          <p>Created by Sindre. Click here to access the GitHub repository.</p>
         </footer>
       </a>
     </div>

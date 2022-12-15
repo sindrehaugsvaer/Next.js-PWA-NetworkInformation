@@ -227,6 +227,10 @@
   align-items: center;
 }
 
+.footer p {
+  text-align: center;
+}
+
 .footer:hover,
 .footer:focus,
 .footer:active {
