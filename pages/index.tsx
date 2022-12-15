@@ -8,18 +8,59 @@ import { useBatteryStatus } from '../hooks/useBatteryStatus';
 import { useDeviceMemory } from '../hooks/useDeviceMemory';
 
 export function checkVersion(connection?: string) {
-  let version: string;
+  // let versionObject: string;
+  // let background: boolean;
+
+  // const [state, setState] = useState<{
+  //   version?: string;
+  //   background?: boolean;
+  // }>({});
+
+  // const versionObject = { version
+  //   // version?: string,
+  //   // background?: boolean
+  // };
+
+  interface versionObjectInterface {
+    version: string,
+    background: boolean,
+    video: boolean,
+    image: boolean
+  };
+
+  const versionObject = {} as versionObjectInterface;
+
   switch (connection) {
     case "offline":
-      return version = "offline";
+      versionObject.version = "offline";
+      versionObject.background = false;
+      versionObject.video = false;
+      versionObject.image = false;
+      return versionObject;
     case "slow-2g":
-      return version = "light";
+      versionObject.version = "light";
+      versionObject.background = false;
+      versionObject.video = false;
+      versionObject.image = false;
+      return versionObject;
     case "2g":
-      return version = "light";
+      versionObject.version = "light";
+      versionObject.background = false;
+      versionObject.video = false;
+      versionObject.image = false;
+      return versionObject;
     case "3g":
-      return version = "medium";
+      versionObject.version = "medium";
+      versionObject.background = true;
+      versionObject.video = false;
+      versionObject.image = true;
+      return versionObject;
     case "4g":
-      return version = "full";
+      versionObject.version = "full";
+      versionObject.background = true;
+      versionObject.video = true;
+      versionObject.image = true;
+      return versionObject;
     default:
       throw Error('Could not select version');
   }
@@ -29,15 +70,26 @@ export default function Home() {
   const battery = useBatteryStatus();
   const connection = useNetworkInformation();
   const ram = useDeviceMemory();
-  let version = "medium";
+  interface versionObjectInterface {
+    version: string,
+    background: boolean,
+    video: boolean,
+    image: boolean
+  };
+
+  let versionObject = {} as versionObjectInterface;
+  versionObject.version = "medium";
+
   console.log("connection:", connection);
   console.log("batteri:", battery);
   console.log("ram", ram);
+  console.log(versionObject);
 
   if (Object.keys(connection).length != 0) {
-    version = checkVersion(connection.effectiveType);
+    console.log("checking object");
+    versionObject = checkVersion(connection.effectiveType);
   }
-  console.log(version);
+  console.log(versionObject);
   const videoProps = {
     videoId: "DgqAAE9Aagc?rel=0&vq=medium",
     title: "The video:",
@@ -85,7 +137,7 @@ export default function Home() {
           </div>
 
           <div className={styles.statusSpace}>
-            <p className={styles.scrollDownInfo}>&darr; Scroll down to view the <a className={styles.stats}>{version}</a> version of the app &darr;</p>
+            <p className={styles.scrollDownInfo}>&darr; Scroll down to view the <a className={styles.stats}>{versionObject.version}</a> version of the app &darr;</p>
             <div className={styles.statusBigBox}>
               <h3>Your current stats (click to read more):</h3>
               <div className={styles.statusGrid}>
@@ -143,61 +195,74 @@ export default function Home() {
           </div>
         </div>
 
-        <div className={styles.content}>
+        <div className={(versionObject.background) ? styles.contentBG : styles.content}>
           <div className={styles.grid}>
 
-            <a href="https://www.nasa.gov/" target="_blank" rel="noopener noreferrer" className={styles.card}>
-              <h2>Universe &rarr;</h2>
-              <p>Click here to find out more about it, or watch this awesome YouTube-video:</p>
-              <YoutubeIframe {...videoProps} />
-            </a>
+            {(versionObject.video) ?
+              <a
+                href="https://www.nasa.gov/" target="_blank" rel="noopener noreferrer" className={styles.card}>
+                <h2>Universe &rarr;</h2>
+                <p>Click here to find out more about it, or watch this awesome YouTube-video:</p>
+                <YoutubeIframe {...videoProps} />
+              </a>
+              : <></>
+            }
 
             <a href="https://www.nasa.gov/" target="_blank" rel="noopener noreferrer" className={styles.card}>
               <h2>Galaxies &rarr;</h2>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              <div className={styles.imgContainer}>
-                <Image
-                  className={styles.image}
-                  alt="Space"
-                  src="https://images.unsplash.com/photo-1502134249126-9f3755a50d78?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80"
-                  fill
-                  sizes="(max-width: 768px) 100vw,
+              {(versionObject.image) ?
+                <div className={styles.imgContainer}>
+                  <Image
+                    className={styles.image}
+                    alt="Space"
+                    src="https://images.unsplash.com/photo-1502134249126-9f3755a50d78?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80"
+                    fill
+                    sizes="(max-width: 768px) 100vw,
                   (max-width: 1200px) 50vw,
                   33vw"
-                />
-              </div>
+                  />
+                </div>
+                : <></>
+              }
             </a>
 
             <a href="https://www.nasa.gov/" target="_blank" rel="noopener noreferrer" className={styles.card}>
               <h2>Space Missions &rarr;</h2>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              <div className={styles.imgContainer}>
-                <Image
-                  className={styles.image}
-                  alt="Space"
-                  src="https://images.unsplash.com/photo-1596827414894-911f1265e391?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80"
-                  fill
-                  sizes="(max-width: 768px) 100vw,
-                  (max-width: 1200px) 50vw,
-                  33vw"
-                />
-              </div>
+              {(versionObject.image) ?
+                <div className={styles.imgContainer}>
+                  <Image
+                    className={styles.image}
+                    alt="Space"
+                    src="https://images.unsplash.com/photo-1596827414894-911f1265e391?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80"
+                    fill
+                    sizes="(max-width: 768px) 100vw,
+                (max-width: 1200px) 50vw,
+                33vw"
+                  />
+                </div>
+                : <></>
+              }
             </a>
 
             <a href="https://www.nasa.gov/" target="_blank" rel="noopener noreferrer" className={styles.card}>
               <h2>Black hole &rarr;</h2>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              <div className={styles.imgContainer}>
-                <Image
-                  className={styles.image}
-                  alt="Space"
-                  src="https://images.unsplash.com/photo-1640984756059-7303641db7cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80"
-                  fill
-                  sizes="(max-width: 768px) 100vw,
+              {(versionObject.image) ?
+                <div className={styles.imgContainer}>
+                  <Image
+                    className={styles.image}
+                    alt="Space"
+                    src="https://images.unsplash.com/photo-1640984756059-7303641db7cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80"
+                    fill
+                    sizes="(max-width: 768px) 100vw,
                   (max-width: 1200px) 50vw,
                   33vw"
-                />
-              </div>
+                  />
+                </div>
+                : <></>
+              }
             </a>
           </div>
         </div>
