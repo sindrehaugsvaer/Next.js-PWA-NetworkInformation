@@ -67,8 +67,8 @@ export default function Home() {
   versionObject.version = "medium";
 
   // console.log("connection:", connection);
-  console.log("batteri:", battery);
-  console.log("battery level", battery.level)
+  // console.log("batteri:", battery);
+  // console.log("battery level", battery.level)
   // console.log("ram", ram);
   // console.log(versionObject);
 
@@ -125,57 +125,73 @@ export default function Home() {
             <p className={styles.scrollDownInfo}>&darr; Scroll down to view the <a className={styles.stats}>{versionObject.version}</a> version of the app &darr;</p>
             <div className={styles.statusBigBox}>
               <h3>Your current stats (click to read more):</h3>
-              <div className={styles.statusGrid}>
 
-                <a
-                  href="https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation/effectiveType"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.statusBox}>
-                  <p>Speed: </p>
-                  <p className={styles.stats}>{connection.effectiveType}</p>
-                </a>
-                <a
-                  href="https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation/downlink"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.statusBox}>
-                  <p>Downlink: </p>
-                  <p className={styles.stats}>{connection.downlink}</p>
-                </a>
-                <a
-                  href="https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation/rtt"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.statusBox}>
-                  <p>RTT:</p>
-                  <p className={styles.stats}>{connection.rtt}</p>
-                </a>
-                <a
-                  href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/deviceMemory"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.statusBox}>
-                  <p>RAM:</p>
-                  <p className={styles.stats}>{ram}GB</p>
-                </a>
-                <a
-                  href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/getBattery"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.statusBox}>
-                  <p>Battery charging:</p>
-                  <p className={styles.stats}>{battery.charging}</p>
-                </a>
-                <a
-                  href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/getBattery"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.statusBox}>
-                  <p>Battery level:</p>
-                  <p className={styles.stats}>{battery.level}</p>
-                </a>
-              </div>
+              {(battery.level) ? (
+                <div className={styles.statusGrid}>
+                  <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation/effectiveType"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.statusBox}>
+                    <p>Speed: </p>
+                    <p className={styles.stats}>{connection.effectiveType}</p>
+                  </a>
+                  <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation/downlink"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.statusBox}>
+                    <p>Downlink: </p>
+                    <p className={styles.stats}>{connection.downlink}</p>
+                  </a>
+                  <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation/rtt"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.statusBox}>
+                    <p>RTT:</p>
+                    <p className={styles.stats}>{connection.rtt}</p>
+                  </a>
+                  <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/deviceMemory"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.statusBox}>
+                    <p>RAM:</p>
+                    <p className={styles.stats}>{ram}GB</p>
+                  </a>
+                  <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/getBattery"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.statusBox}>
+                    <p>Battery charging:</p>
+                    <p className={styles.stats}>{battery.charging}</p>
+                  </a>
+                  <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/getBattery"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.statusBox}>
+                    <p>Battery level:</p>
+                    <p className={styles.stats}>{battery.level}</p>
+                  </a>
+                </div>
+              )
+                : (
+                  <div className={styles.statusGrid}>
+                    <a
+                      href="https://www.google.com/intl/no/chrome/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.statusBoxNoStats}>
+                      <p>Unfortunately your browser is not supported. Click here to check out</p>
+                      <p className={styles.stats}> Chrome</p>
+                    </a>
+                  </div>
+                )
+              }
+
             </div>
           </div>
         </div>

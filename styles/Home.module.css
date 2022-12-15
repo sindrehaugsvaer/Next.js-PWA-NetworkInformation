@@ -126,6 +126,21 @@
   margin: 12px 4px;
 }
 
+.statusBoxNoStats {
+  border: 1px solid #eaeaea;
+  width: 200px;
+  border-radius: 10px;
+  margin: 6px;
+  font-size: 0.8rem;
+  justify-content: center;
+  line-height: 1.2rem;
+}
+
+.statusBoxNoStats>p {
+  margin: 0 0;
+  display: inline;
+}
+
 .statusBox:hover,
 .statusBox:focus,
 .statusBox:active {
@@ -371,11 +386,16 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
+
+  .grid {
+    color: #ffffff;
+  }
 
   .card,
   .footer {
     border-color: #222;
+    color: #ffffff;
   }
 
   .code {
@@ -385,4 +405,4 @@
   .logo img {
     filter: invert(1);
   }
-}
+} */
