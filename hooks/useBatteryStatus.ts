@@ -34,7 +34,6 @@ export function useBatteryStatus() {
             });
         } catch {
             return callback;
-            console.log("callback", callback);
         }
     }, [])
     return state;

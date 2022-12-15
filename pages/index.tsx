@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { useEffect, useState } from 'react';
 import styles from '../styles/Home.module.css'
 import YoutubeIframe from "./youtubevideo";
 import { useNetworkInformation } from '../hooks/useNetworkInformation';
@@ -8,19 +7,6 @@ import { useBatteryStatus } from '../hooks/useBatteryStatus';
 import { useDeviceMemory } from '../hooks/useDeviceMemory';
 
 export function checkVersion(connection?: string) {
-  // let versionObject: string;
-  // let background: boolean;
-
-  // const [state, setState] = useState<{
-  //   version?: string;
-  //   background?: boolean;
-  // }>({});
-
-  // const versionObject = { version
-  //   // version?: string,
-  //   // background?: boolean
-  // };
-
   interface versionObjectInterface {
     version: string,
     background: boolean,
@@ -80,16 +66,14 @@ export default function Home() {
   let versionObject = {} as versionObjectInterface;
   versionObject.version = "medium";
 
-  console.log("connection:", connection);
-  console.log("batteri:", battery);
-  console.log("ram", ram);
-  console.log(versionObject);
+  // console.log("connection:", connection);
+  // console.log("batteri:", battery);
+  // console.log("ram", ram);
+  // console.log(versionObject);
 
   if (Object.keys(connection).length != 0) {
-    console.log("checking object");
     versionObject = checkVersion(connection.effectiveType);
   }
-  console.log(versionObject);
   const videoProps = {
     videoId: "DgqAAE9Aagc?rel=0&vq=medium",
     title: "The video:",

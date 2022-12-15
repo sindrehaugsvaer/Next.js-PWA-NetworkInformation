@@ -12,8 +12,6 @@ export function useDeviceMemory() {
     }>({});
 
     useEffect(() => {
-        const callback = () => { };
-
         // @ts-ignore
         const memory = navigator?.deviceMemory;
         function updateMemoryState() {
