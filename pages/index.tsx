@@ -64,8 +64,19 @@ export default function Home() {
             </p>
 
             <div className={styles.speedBox}>
-              <p>Current connection equivalent to:</p>
-              <h2>{(connection.effectiveType == "offline") ? 'off' : connection.effectiveType}</h2>
+              {(battery) ? (
+                <>
+                  <p>Current connection equivalent to:</p>
+                  <h2>{(connection.effectiveType == "offline") ? 'off' : connection.effectiveType}</h2>
+                </>
+              )
+                : (
+                  <>
+                    <p>Browser not supported. Try Chrome.</p>
+                    <h2>:/</h2>
+                  </>
+                )
+              }
             </div>
 
             <p className={styles.instructions}>
