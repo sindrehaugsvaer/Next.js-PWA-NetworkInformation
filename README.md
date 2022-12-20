@@ -10,7 +10,6 @@ The PWA is developed with [Next.js](https://nextjs.org/), a React web framework.
 
 - The app is publicly available on the cloud hosting platform [Netlify](https://netlify.com), and can be accessed [HERE](https://apw22.netlify.app/)
 
-
 - The app instantly displays current stats retrieved from your browser. By scrolling down, some mock-articles with images and a video is presented.
 
 - All the articles links to NASA, and the video is embedded from YouTube.
@@ -24,12 +23,12 @@ The PWA is developed with [Next.js](https://nextjs.org/), a React web framework.
 **Reminder:**\
 *The Network Information API is still experimental, which means it is not supported by all browsers. Chrome is recommended.*
 
-## Github repository
-Source code available [HERE](https://github.com/sindrehaugsvaer/Next.js-PWA-NetworkInformation).
-
 ## Screenshots
+### Desktop:
 <kbd> <img src="./screenshots/screenshot_desktop_1.png?raw=true" /> </kbd>
 <kbd> <img src="./screenshots/screenshot_desktop_2.png?raw=true" /> </kbd>
 <kbd> <img src="./screenshots/screenshot_desktop_3.png?raw=true" /> </kbd>
+
+### Mobile
 <kbd> <img src="./screenshots/screenshot_mobile_1.png?raw=true" /> </kbd>
 <kbd> <img src="./screenshots/screenshot_mobile_2.png?raw=true" /> </kbd>
