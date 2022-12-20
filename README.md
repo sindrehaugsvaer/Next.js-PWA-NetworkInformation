@@ -30,6 +30,10 @@ Source code available [HERE](https://github.com/sindrehaugsvaer/Next.js-PWA-Netw
 ## Screenshots
 <img src="./screenshots/screenshot_desktop_1.png?raw=true" alt="screenshot 1" style="border: 3px solid red" />
 
+<kbd> <img src="./screenshots/screenshot_desktop_1.png?raw=true" /> </kbd>
+
+
+
 ![App Screenshot](./screenshots/screenshot_desktop_1.png?raw=true)
 ![App Screenshot](./screenshots/screenshot_desktop_2.png?raw=true)
 ![App Screenshot](./screenshots/screenshot_desktop_3.png?raw=true)
