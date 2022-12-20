@@ -29,7 +29,7 @@ Source code available [HERE](https://github.com/sindrehaugsvaer/Next.js-PWA-Netw
 
 ## Screenshots
 ![App Screenshot](./screenshots/screenshot_desktop_1.png?raw=true)
-![App Screenshot](.screenshots/screenshot_desktop_2.png?raw=true)
+![App Screenshot](./screenshots/screenshot_desktop_2.png?raw=true)
 ![App Screenshot](./screenshots/screenshot_desktop_3.png?raw=true)
 ![App Screenshot](./screenshots/screenshot_mobile_1.png?raw=true)
 ![App Screenshot](./screenshots/screenshot_mobile_2.png?raw=true)
