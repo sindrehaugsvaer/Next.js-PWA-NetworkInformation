@@ -82,10 +82,10 @@ export default function Home() {
   }
 
   //For demo/testing. Force 4G-version of page.
-  versionObject.background = true;
-  versionObject.image = true;
-  versionObject.version = "full";
-  versionObject.video = true;
+  // versionObject.background = true;
+  // versionObject.image = true;
+  // versionObject.version = "full";
+  // versionObject.video = true;
 
 
   return (
