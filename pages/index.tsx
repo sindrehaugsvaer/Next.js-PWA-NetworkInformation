@@ -81,6 +81,9 @@ export default function Home() {
     autoplay: true
   }
 
+  //For demo/testing. Force 4G-version of page.
+  connection.effectiveType = "4g";
+
   return (
     <div className={styles.container}>
       <Head>
