@@ -28,7 +28,9 @@ The PWA is developed with [Next.js](https://nextjs.org/), a React web framework.
 Source code available [HERE](https://github.com/sindrehaugsvaer/Next.js-PWA-NetworkInformation).
 
 ## Screenshots
+<kbd>
 ![App Screenshot](./screenshots/screenshot_desktop_1.png?raw=true)
+</kbd>
 ![App Screenshot](./screenshots/screenshot_desktop_2.png?raw=true)
 ![App Screenshot](./screenshots/screenshot_desktop_3.png?raw=true)
 ![App Screenshot](./screenshots/screenshot_mobile_1.png?raw=true)
