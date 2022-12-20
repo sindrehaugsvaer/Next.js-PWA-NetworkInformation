@@ -82,7 +82,11 @@ export default function Home() {
   }
 
   //For demo/testing. Force 4G-version of page.
-  connection.effectiveType = "4g";
+  versionObject.background = true;
+  versionObject.image = true;
+  versionObject.version = "full";
+  versionObject.video = true;
+
 
   return (
     <div className={styles.container}>
